@@ -34,12 +34,12 @@ function Xwing() {
   }
 
 function MC80() {
-    const fbx = useLoader(FBXLoader, "./static/mc80.fbx");
+    const fbx = useLoader(FBXLoader, "./static/MC80.fbx");
     return <primitive object={fbx} scale={[0.08,0.08,0.08]}/>;
   }
 
   function TieFighter() {
-    const fbx = useLoader(FBXLoader, "./static/TieFighter.fbx");
+    const fbx = useLoader(FBXLoader, "./static/tieFighter.fbx");
     return <primitive object={fbx} scale={[0.5,0.5,0.5]}/>;
   }
   
