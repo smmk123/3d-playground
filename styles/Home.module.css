@@ -1,10 +1,14 @@
-.container {
-  padding: 0 2rem;
+.canvas{
+  height:60em;
+  width:100%;
 }
-
+.container {
+  padding: 0;
+}
+.form-element{margin:2em; padding :2em;}
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
+  padding: 0;
   flex: 1;
   display: flex;
   flex-direction: column;
