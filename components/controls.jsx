@@ -16,15 +16,20 @@ export default function SelectionPanel() {
     lightLevel: "3",
     textArea: "",
     float: false,
-    model:"executor",
+    model:"starDestroyer",
   });
 
   const models= [
     {name:"tiefighter",
-     credit:"https://sketchfab.com/DanielAndersson/models"},
-    {name:"tiedefender"},
-    {name:"executor"},
-    {name:"f35"}, 
+     credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"tiedefender",credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"executor", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"xwing", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"c90", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"immobilizer", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"marauder", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"}, 
+    {name:"mc80", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"starDestroyer", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
     ]
 
   const colorOptions = [
@@ -39,6 +44,11 @@ export default function SelectionPanel() {
   ];
 
   const radioOptions = ["3", "6", "9", "12", "100"];
+
+  const getModelCredit =(currentModel) =>{
+    const result = models.find((model) => model.name === currentModel);
+    return result.credit ? result.credit : null;
+  }
 
   const handleColorChange = (e) => {
     setSelections((values) => ({ ...values, color: e.target.value }));
@@ -165,7 +175,7 @@ export default function SelectionPanel() {
         </Canvas>
         
       </Suspense>
-      <p>model by {selections.model === "executor" && "DanielAndersson https://sketchfab.com/DanielAndersson/models"}</p>
+      <p>model by {getModelCredit(selections.model)}</p>
     </>
   );
 }

@@ -1,31 +1,28 @@
 import React, { useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import TieFighter from "./models/tieFighter";
-import F35 from "./models/f35";
-import TieDefender from "./models/tieDefender";
-import ExecutorClassStarDestroyer from "./models/executorStarDestroyer";
+import {ExecutorClassStarDestroyer, C90, Xwing, MC80, TieFighter, Immobilizer, TieDefender, StarDestroyer, MauraderCorvette} from './models/starWars'
 
 export default function Box(props) {
   let rotate = 0;
   if (props.rotate) rotate = 0.01;
-  // console.log(rotate);
   const mesh = useRef();
   useFrame(() => (mesh.current.rotation.y = mesh.current.rotation.y += rotate));
-
-  const texture = new THREE.TextureLoader().load("/skin.jpeg");
-  const normal_map = new THREE.TextureLoader().load("/skin.jpeg");
-  const env_map = new THREE.TextureLoader().load("/canary_wharf_4k.hdr");
 
   return (
     
     <mesh {...props} ref={mesh}>
-      {console.log(props.model)}
-      {props.model==="f35" && <F35 position={[0, 0, 0]} />}
-      {props.model==="tiedefender" && <TieDefender position={[0, 0, 0]} />}
-      {props.model==="executor" && <ExecutorClassStarDestroyer position={[0, 0, 0]} />}
+      {props.model==="tiefighter" && <TieFighter/>}
+      {props.model==="tiedefender" && <TieDefender/>}
+      {props.model==="executor" && <ExecutorClassStarDestroyer/>}
+      {props.model==="xwing" && <Xwing/>}
+      {props.model==="c90" && <C90/>}
+      {props.model==="mc80" && <MC80/>}
+      {props.model==="immobilizer" && <Immobilizer/>}
+      {props.model==="starDestroyer" && <StarDestroyer/>}
+      {props.model==="marauder" && <MauraderCorvette/>}
+      
       {/* <torusKnotGeometry args={[6, 3, 100]} /> */}
-      {props.model==="tiefighter" && <TieFighter position={[0, -500, 0]} />}
       {/* <meshStandardMaterial color={props.color} /> */}
       {/* <meshPhysicalMaterial
         color={props.color}
