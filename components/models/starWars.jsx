@@ -19,7 +19,7 @@ const  C90 = () => {
   }
 
   const  Immobilizer = () => {
-    const fbx = useLoader(FBXLoader, "./static/immobilizer.fbx");
+    const fbx = useLoader(FBXLoader, "./static/Immobilizer.fbx");
     return <primitive object={fbx} scale={[0.3,0.3,0.3]}/>;
   }
 
