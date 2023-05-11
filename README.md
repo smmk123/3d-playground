@@ -1,34 +1,93 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 3D-Playground App
 
-## Getting Started
+This is a 3D-Playground app built using Next.Js, React, React Router DOM, Axios, and Bootstrap CSS. It utilizes the Three.js React-Three/fiber, and React-three/drei liobraries to render 3D models to the client's browser. The app includes a selections panel which can change the lighting, lighting intensity and model display, rotate the mode and add motion.
 
-First, run the development server:
+## Table of Contents
 
-```bash
+- [Installation](#installation)
+
+- [Usage](#usage)
+
+- [Dependencies](#dependencies)
+
+- [Contributing](#contributing)
+
+- [License](#license)
+
+
+## Installation
+
+To install and run the 3D-Playground app locally, follow these steps:
+
+Clone this repository to your local machine using the following command:
+
+````
+git clone https://github.com/smmk123/3d-playground
+````
+Navigate to the project directory:
+
+````
+cd 3d-playground
+````
+Install the required dependencies using npm or Yarn:
+
+````
+npm install
+````
+or
+
+````
+yarn install
+````
+
+## Usage
+
+Once you have installed the necessary dependencies, you can start the app using the following command:
+
+````
 npm run dev
-# or
-yarn dev
-```
+````
+or
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+````
+yarn run dev
+````
+This will start the development server and launch the app in your default browser. You can now use the 3D-Playground app to search for and view detailed information about different Pokemon.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Dependencies
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+The 3D-Playground app relies on the following dependencies:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- React: A JavaScript library for building user interfaces.
+- Three.js: A lightweight and powerful 3D rendering library.
+- React Three Fiber: A React reconciler for Three.js that allows declarative usage of Three.js in React applications.
+- React Three Drei: A collection of useful helpers and abstractions for React Three Fiber.
 
-## Learn More
+These dependencies are managed using npm or Yarn and will be automatically installed when following the installation steps mentioned above.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions to this project are welcome. If you would like to contribute, please follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Fork the repository on GitHub.
+Create a new branch with a descriptive name:
 
-## Deploy on Vercel
+````
+git checkout -b feature/my-new-feature
+````
+Make your modifications and write tests if necessary.
+Commit your changes with a clear and concise commit message:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+````
+git commit -am 'Add some feature'
+````
+Push your branch to your forked repository:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+````
+git push origin feature/my-new-feature
+````
+Open a pull request against the main repository, providing a detailed description of your changes.
+
+## License
+
+The 3D-Playground app is open source and available under the MIT License. You are free to modify and distribute the code as per the terms of the license.

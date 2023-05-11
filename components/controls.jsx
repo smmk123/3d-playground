@@ -30,6 +30,7 @@ export default function SelectionPanel() {
     {name:"marauder", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"}, 
     {name:"mc80", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
     {name:"starDestroyer", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"constitution", credit:"Wholock https://sketchfab.com/wholock"},
     ]
 
   const colorOptions = [

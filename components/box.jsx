@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import {ExecutorClassStarDestroyer, C90, Xwing, MC80, TieFighter, Immobilizer, TieDefender, StarDestroyer, MauraderCorvette} from './models/starWars'
+import { Constitution } from "./models/starTrek";
 
 export default function Box(props) {
   let rotate = 0;
@@ -21,6 +22,7 @@ export default function Box(props) {
       {props.model==="immobilizer" && <Immobilizer/>}
       {props.model==="starDestroyer" && <StarDestroyer/>}
       {props.model==="marauder" && <MauraderCorvette/>}
+      {props.model==="constitution" && <Constitution/>}
       
       {/* <torusKnotGeometry args={[6, 3, 100]} /> */}
       {/* <meshStandardMaterial color={props.color} /> */}
