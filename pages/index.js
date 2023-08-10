@@ -14,7 +14,6 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.canvas}>
-          <h1>3D Area</h1>
           <ThreeDScene/>
         </div>
       </main>

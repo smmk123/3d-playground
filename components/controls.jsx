@@ -20,16 +20,15 @@ export default function SelectionPanel() {
   });
 
   const models= [
-    {name:"tiefighter",
-     credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
-    {name:"tiedefender",credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
-    {name:"executor", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
-    {name:"xwing", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
-    {name:"c90", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
-    {name:"immobilizer", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
-    {name:"marauder", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"}, 
-    {name:"mc80", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
-    {name:"starDestroyer", credit:"DanielAndersson https://sketchfab.com/DanielAndersson/models"},
+    {name:"tiefighter", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
+    {name:"tiedefender", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
+    {name:"executor", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
+    {name:"xwing", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
+    {name:"c90", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
+    {name:"immobilizer", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
+    {name:"marauder", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"}, 
+    {name:"mc80", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
+    {name:"starDestroyer", credit:"Daniel Andersson", href:"https://sketchfab.com/DanielAndersson/models"},
     // {name:"constitution", credit:"Wholock https://sketchfab.com/wholock"},
     ]
 
@@ -46,10 +45,11 @@ export default function SelectionPanel() {
 
   const radioOptions = ["3", "6", "9", "12", "100"];
 
-  const getModelCredit =(currentModel) =>{
-    const result = models.find((model) => model.name === currentModel);
-    return result.credit ? result.credit : null;
-  }
+  const [formVisible, setFormVisible] = useState(false);
+
+  const toggleForm = () => {
+    setFormVisible(!formVisible);
+  };
 
   const handleColorChange = (e) => {
     setSelections((values) => ({ ...values, color: e.target.value }));
@@ -80,18 +80,14 @@ export default function SelectionPanel() {
   };
 
   return (
-    <>
+    <><div className={`form-overlay ${formVisible ? 'visible' : ''}`}>
+    <button className="menu-button" onClick={toggleForm}>
+      +
+    </button>
+    {formVisible && (
+      <div className="form-wrapper">
       <form>
         <div className="form-element">
-          <span>Color </span>
-          <select value={selections.color} onChange={handleColorChange}>
-            {colorOptions.map((color) => (
-              <option key={color} value={color}>
-                {color}
-              </option>
-            ))}
-          </select>
-
           <span>Model </span>
           <select value={selections.model} onChange={handleModelChange}>
             {models.map(({name}) => (
@@ -100,20 +96,34 @@ export default function SelectionPanel() {
               </option>
             ))}
           </select>
-
+              </div>
+              <div className="form-element">
+          <span>Light Color </span>
+          <select value={selections.color} onChange={handleColorChange}>
+            {colorOptions.map((color) => (
+              <option key={color} value={color}>
+                {color}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-element">
           <label className="form-element">
             Light Level
+            <div className="radio-group">
             {radioOptions.map((radio) => (
-              <label key={radio}>
+              <label key={radio} className="radio-label">
                 <input
                   type="radio"
                   value={radio}
                   checked={selections.lightLevel === radio}
                   onChange={handleRadioButton}
+                  className="radio-input"
                 />
                 {radio}
               </label>
             ))}
+            </div>
           </label>
         </div>
 
@@ -135,8 +145,10 @@ export default function SelectionPanel() {
           Float
         </label>
               
-        
+      
       </form>
+      </div>)}
+      </div>
       <Suspense fallback={<h1>Loading...</h1>}>
         <Canvas
           camera={{ position: [500, -200, 850], zoom: 1.5, far: 4000 }}
@@ -176,7 +188,12 @@ export default function SelectionPanel() {
         </Canvas>
         
       </Suspense>
-      <p>model by {getModelCredit(selections.model)}</p>
+      <p className="credit">
+  Model by{" "}
+  <a href={models.find((model) => model.name === selections.model)?.href} target="_blank" rel="noopener noreferrer">
+    {models.find((model) => model.name === selections.model)?.credit}
+  </a>
+</p>
     </>
   );
 }
