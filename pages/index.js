@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>3D playground</title>
+        <title>3D Model Viewer</title>
         <meta name="description" content="threeJS test and viewer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
